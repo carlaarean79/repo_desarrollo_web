@@ -1,0 +1,36 @@
+# repo_desarrollo_web
+guardar los códigos que veamos en el curso
+
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<div id="app"></div>
+
+	<script src="src/index.ts">
+	</script>
+</body>
+
+</html>
+
+mport "./styles.css";
+
+let clave = "eureka";
+let contador: number = 0;
+
+let claveIngresada = prompt("ingrese su clave");
+
+while (contador <= 3 && claveIngresada !== clave) {
+  contador = contador++;
+  claveIngresada = prompt("Clave incorrecta");
+  if (contador > 3) {
+    claveIngresada = prompt("Clave bloqueada");
+  } else if (claveIngresada === clave) {
+    claveIngresada = prompt("Bienvenido");
+  }
+  return contador;
+}
