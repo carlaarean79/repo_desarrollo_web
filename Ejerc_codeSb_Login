@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h1>Login</h1>
+    Nombre de ususario:
+    <input type="text" id="usuario" placeholder="Ingrese su usuario" />
+    <br />
+    <br />
+    Contraseña:
+    <input type="text" id="contrasena" placeholder="Ingrese su contraseña" />
+    <br />
+    <br />
+    <button id="btn" />Enviar
+
+    <script src="src/index.ts"></script>
+  </body>
+</html>
+
+
+import "./styles.css";
+
+const inpuUsuario = document.getElementById("usuario");
+const inpuContras = document.getElementById("contrasena");
+const bot = document.getElementById("btn");
+
+let usuario: string = "Juan";
+let clave: string = "ClaveJuan";
+let usuarioIngresado: string = inpuUsuario.value;
+let claveIngresada: string = inpuContras.value;
+
+bot.addEventListener("click", function () {
+  console.log(clave);
+  console.log(usuario);
+
+  console.log(inpuUsuario.value);
+  console.log(inpuContras.value);
+
+  if (usuario == inpuUsuario.value && clave == inpuContras.value) {
+    console.log("Los datos ingresados son correctos");
+    alert("bienvenido");
+  } else {
+    console.log("Los datos ingresados son incorrectos");
+    alert("Los datos ingresados son incorrectos");
+  }
+});
