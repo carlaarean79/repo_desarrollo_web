@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Evaluador de estatura</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<h1>Comprobar estatura</h1>
+	<input type="number" id="estatura" placeholder="Ingrese Estatura"></input>
+	<button id="btn">Evaluar</button>
+	<br>
+	<p id="ingresa">Resultado de altura: <span id=""comentario"> </span></p>
+	
+	<script src="src/index.ts">
+	</script>
+</body>
+
+</html>
+
+import "./styles.css";
+// desarrollar un algoritmo donde según la altura
+// de la persona, se le permita ingresar
+// o no al juego. Altura mínima 1.30
+
+const inpuEstatura = document.getElementById("estatura");
+const btn = document.getElementById("btn");
+const paragraf1 = document.getElementById("ingresa");
+const span = document.getElementById("comentario");
+
+let alturaMinima: number = 1.3;
+let alturaPersona: number = Number(inpuEstatura.value);
+
+btn.addEventListener("click", function () {
+  alturaPersona = Number(inpuEstatura.Value);
+  alturaMinima = 1.3;
+  if (alturaMinima <= inpuEstatura.value) {
+    console.log("Puede pasar");
+    paragraf1.innerText = "Ingresa";
+  } else {
+    console.log("No puede pasar");
+    paragraf1.innerText = "No ingresa";
+  }
+});
