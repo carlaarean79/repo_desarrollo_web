@@ -1,0 +1,19 @@
+let inpuValor = document.getElementById("valor");
+let btn = document.getElementById("boton");
+let parrafo = document.getElementById("parr");
+
+let valor: number = Number(inpuValor.value);
+
+btn.addEventListener("click", () => {
+  valor = Number(inpuValor.value);
+  if (valor === 20) {
+    console.log("El número ingresado es igual a 20");
+    parrafo.innerText = "El número ingresado es igual a 20";
+  } else if (valor >= 20) {
+    console.log("El número es mayor a 20");
+    parrafo.innerText = "El número ingresado es mayor a 20";
+  } else {
+    console.log("El número es menor a 20");
+    parrafo.innerText = "El número ingresado es menor a 20";
+  }
+});
