@@ -1,0 +1,43 @@
+let cantidad: number = 4; //cantidad de clientes
+let clientes: string[] = new Array(cantidad); //nombre de los clientes
+let facturacionTotal: number[] = new Array(cantidad); //monto de facturación
+
+console.log("Cargando los arreglos de forma ordenada"); // para cargar los elementos de forma ordenada
+//se crean nuevas variables con cada dato que nos ofrece el ejercicio
+let cliente: any;
+let facturacionVendedor: number;
+let numCliente: number;
+let i: number;
+let j: number;
+let posicion: number;
+//dentro de un for se ubican los valores array que nos piden los datos del cliente y el
+//monto de facturación
+//también contiene un ciclo while
+for (numCliente = 0; numCliente < cantidad; numCliente++) {
+  cliente = prompt(`vendedor ${numCliente + 1}: `);
+  facturacionVendedor = Number(prompt(`facturacion ${numCliente + 1}: `));
+  i = 0; //i arranca en 0. Por lo tanto mientras i sea menor al número de cliente que está en 0
+  //y facturación total sea mayor a la facturación del cliente
+  //si se cumplen las dos condiciones i se va ir sumando por cada iteración y va dejar de sumar si se
+  //se cumple una de las dos
+  while (i < numCliente && facturacionTotal[i] > facturacionVendedor) {
+    i++;
+  } //sale del while y arranca con otro ciclo for pero en sentido invertido(negativo)
+  //numCliente lo va tomando del for anterior
+  //mientras j sea mayor a la variable i del ciclo while, a j se le va a ir restando 1
+  //al valor de clientes en j, le asigna la posición j - 1(una posic. anterior)
+  //
+  for (j = numCliente; j > i; j--) {
+    clientes[j] = clientes[j - 1];
+    facturacionTotal[j] = facturacionTotal[j - 1];
+  } //lo mismo se hace para recorrer facturación
+  //pero con la variable i, ya que en el while a clientes le asignamos la posic. i
+  // por lo tanto a facturación lo recorremos con j
+  clientes[i] = facturacionVendedor;
+  facturacionTotal[i] = facturacionVendedor;
+} //posiciona a cada cliente
+for (posicion = 0; posicion < 4; posicion++) {
+  /* console.log(
+    `(${posicion}) ${clientes[posicion]},[${facturacionTotal[posicion]}] `
+  ); */
+}
