@@ -1,0 +1,22 @@
+Linear Search
+
+Consiste en iterar sobre una estructura de datos, un valor a la vez, comparando el valor de la iteración actual con el término buscado. Es una clase de búsqueda muy intuitiva y la mejor que podemos aplicar si la estructura de datos no está ordenada.
+
+Creamos una función que recibe un arreglo y un término a buscar,
+si lo halla retorna la posición donde lo encontró; si no, al final de las iteraciones retorna -1
+*/
+
+const arr: number[] = [1, 5, 8, 9, 23];
+
+console.log(arr.findIndex((n) => n === 6));
+
+function linearSearch(arr: number[], num: number): number {
+  for (let i: number = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      return i;
+    }
+  }
+  return -1;
+}
+// console.log(linearSearch(arr, 6));
+console.log(linearSearch(arr, 9));
