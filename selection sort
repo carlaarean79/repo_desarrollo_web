@@ -1,0 +1,36 @@
+//selection sort: Complejidad: O(n2)
+//algoritmo cuadrático
+
+/* 
+Se basa en poner el elemento más pequeño al inicio.
+
+1- Tomamos el primer elemento de la estructura de datos como el mínimo de la serie
+
+2- Iteramos los datos comprando cada valor con el valor mínimo actual y provisorio.
+
+3- Si el valor mínimo no es el primer valor del arreglo, lo intercambiamos
+
+4- Repite la iteración hasta que el algoritmo queda ordenado. Si estuviese ordenado de entrada, 
+de todos modos se ejecutarían todas las operaciones.
+*/
+
+const numbers: number[] = [23, 56, 98, 99, 0, -4, 5, 99];
+
+function selectionSort(arr: number[]): number[] {
+  for (let i: number = 0; i < arr.length - 1; i++) {
+    let minIndex: number = i;
+    for (let j: number = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+    let tmp: number = arr[i];
+    arr[i] = arr[minIndex];
+    arr[minIndex] = tmp;
+
+    ///[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+  }
+  return arr;
+}
+
+console.log(selectionSort(numbers));
