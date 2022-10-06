@@ -1,0 +1,51 @@
+/*Quick sort:
+Es un método muy efectivo. Su complejidad espacio/temporal es O(nlog(n))
+Principios: Divide and Conquer -recursión-
+Cómo funciona: 
+Se elige un pivot del arreglo original. 
+Se crean dos arreglos, uno con valores menores que el pivot y otro con valores mayores.
+Después combinamos el resultado de llamar recursivamente a quickSort sobre ambos arreglos.
+Esto sigue hasta que alcanzamos el caso base de array con un elemento (esto es lo que
+retornaremos al finalizar el desenrrollado 'unwinding' de las llamadas recursivas).
+*/
+
+// const nums: number[] = [4, 6, 7];
+// console.log(nums);
+// //spread operator u oprador de propagación
+// console.log(...nums);
+
+const arr: number[] = [2, 3, 7, 8, 9, 1, 12, 6];
+
+//método nativo para ordenar arreglos
+console.log(arr.sort((a, b) => b - a));
+
+function quickSort(arr: number[]): number[] {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const pivot: number = arr[arr.length - 1];
+  const leftArr: number[] = [];
+  const rightArr: number[] = [];
+  for (let i: number = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      //creamos arreglo con menores al pivot en el orden en que estén
+      leftArr.push(arr[i]);
+    } else {
+      //creamos arreglo con mayores al pivot en el orden en que estén
+      rightArr.push(arr[i]);
+    }
+  }
+  if (leftArr.length > 0 && rightArr.length > 0) {
+    const sortedLeft = quickSort(leftArr);
+    const sortedRight = quickSort(rightArr);
+    const output = sortedLeft.concat(pivot, sortedRight);
+    return output;
+    // return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+  } else if (leftArr.length > 0) {
+    return [...quickSort(leftArr), pivot];
+  } else {
+    return [pivot, ...quickSort(rightArr)];
+  }
+}
+
+console.log(quickSort(arr));
